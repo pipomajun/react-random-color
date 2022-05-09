@@ -8,15 +8,19 @@ import { useState } from 'react';
 
 export default function App() {
   const [color, setColor] = useState(randomColor.randomColor());
-  const backgroundColor = color;
 
   return (
     <div className="App">
+      <h1>Random Color Generator with React</h1>
       <div
         style={{
-          backgroundColor: backgroundColor,
+          backgroundColor: color,
           width: 'auto',
           height: '150px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontWeight: 'bold',
         }}
       >
         Generated Color: {color}
