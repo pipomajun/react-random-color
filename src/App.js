@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 export default function App() {
   const [color, setColor] = useState(randomColor.randomColor());
-  // const [emojiName, setEmojiName] = useState('');
   const backgroundColor = color;
 
   return (
