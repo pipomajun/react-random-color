@@ -7,27 +7,55 @@ import { useState } from 'react';
 // 3. Color a div in that random color and show the hex color in the center of the div
 
 export default function App() {
-  const [color, setColor] = useState(randomColor.randomColor());
-
+  const [hue, setHue] = useState('');
+  const [luminosity, setLuminosity] = useState('');
+  const [color, setColor] = useState(randomColor());
+  const generateColor = randomColor({ hue: hue, luminosity: luminosity });
   return (
     <div className="App">
-      <h1>Random Color Generator with React</h1>
+      <h1
+        style={{
+          color: color,
+          transitionDuration: '0.7s',
+        }}
+      >
+        Random Color Generator with React
+      </h1>
       <div
         style={{
-          backgroundColor: color,
-          width: 'auto',
-          height: '150px',
+          backgroundColor: generateColor,
+          transitionDuration: '0.7s',
+          width: '900px',
+          height: '450px',
+          margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontWeight: 'bold',
+          fontSize: '24pt',
         }}
       >
-        Generated Color: {color}
+        Generated Color: {generateColor}
       </div>
-      <button onClick={() => setColor(randomColor.randomColor())}>
-        Generate
-      </button>
+      <br />
+      <br />
+      <button onClick={() => setColor(generateColor)}>Generate</button>
+      <br />
+      <br />
+      <div>
+        <h3>Choose a hue:</h3>
+        <input
+          value={hue}
+          onChange={(event) => setHue(event.currentTarget.value)}
+        />
+        <br />
+        <br />
+        <h3>Choose a luminosity:</h3>
+        <input
+          value={luminosity}
+          onChange={(event) => setLuminosity(event.currentTarget.value)}
+        />
+      </div>
     </div>
   );
 }
