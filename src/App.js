@@ -43,15 +43,21 @@ export default function App() {
       <br />
       <br />
       <div>
-        <h3>Choose a hue:</h3>
+        <label htmlFor="hue">
+          <h3>Choose a hue:</h3>
+        </label>
         <input
+          id="hue"
           value={hue}
           onChange={(event) => setHue(event.currentTarget.value)}
         />
         <br />
         <br />
-        <h3>Choose a luminosity:</h3>
+        <label htmlFor="luminosity">
+          <h3>Choose a luminosity:</h3>
+        </label>
         <input
+          id="luminosity"
           value={luminosity}
           onChange={(event) => setLuminosity(event.currentTarget.value)}
         />
